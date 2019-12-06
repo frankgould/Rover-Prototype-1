@@ -1,0 +1,15 @@
+[Unit]
+Description=Goddard Rover Arch GPS Server Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/pi
+ExecStart=gpsd -D 5 -N -n /dev/gps0 /dev/ttyAMA0
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
+Also=gpsd.socket

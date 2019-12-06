@@ -1,0 +1,14 @@
+[Unit]
+Description=Remote Control Screen
+Requires=time-sync.target
+After=time-sync.target
+
+[Service]
+Environment="DISPLAY=:0.0"
+ExecStart=/usr/bin/python3 /home/app/main.py
+RemainAfterExit=yes
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,15 @@
+[Unit]
+Description=Goddard Rover Arch Battery/Temperature Service
+Requires=time-sync.target
+After=time-sync.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/build
+ExecStart=/usr/bin/python3 /home/services/battery_temp_log.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

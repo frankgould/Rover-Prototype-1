@@ -1,0 +1,14 @@
+[Unit]
+Description=Goddard Rover Arch Wheels - Remote Control Communications Service
+Requires=time-sync.target
+After=network.target time-sync.target
+
+[Service]
+Type=idle
+WorkingDirectory=/home/build
+ExecStart=python3 /home/services/motors_server.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

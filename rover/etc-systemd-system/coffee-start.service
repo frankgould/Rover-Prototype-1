@@ -1,0 +1,14 @@
+[Unit]
+Description=Goddard Rover Arch - node-rtsp-server VideoSteam Service
+Requires=time-sync.target
+After=network.target time-sync.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/build
+ExecStart= /lib/node_modules/coffee-script/bin/coffee  /home/build/node-rtsp-rtmp-server/server.coffee
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

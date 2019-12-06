@@ -1,0 +1,15 @@
+[Unit]
+Description=Goddard Remote Control Battery/Temperature Service
+Requires=time-sync.target
+After=time-sync.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/remote_logs
+ExecStart=/usr/bin/python3 /home/services/battery_temp_log.py
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

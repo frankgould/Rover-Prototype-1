@@ -1,0 +1,14 @@
+[Unit]
+Description=Goddard Rover Arch - Main Rover Controller App
+Requires=time-sync.target
+After=network.target time-sync.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/apps
+ExecStart=python3 /home/apps/rover-server.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,15 @@
+[Unit]
+Description=Goddard Rover Arch - Picam VideoSteam Service
+After=coffee-start.service
+Wants=coffee-start.service
+Requires=coffee-start.service
+
+[Service]
+Type=simple
+WorkingDirectory=/home/build/picam
+ExecStart=/home/build/picam/picam --rtspout --hflip --vflip
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

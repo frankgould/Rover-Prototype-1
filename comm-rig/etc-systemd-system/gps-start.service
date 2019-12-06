@@ -1,0 +1,14 @@
+[Unit]
+Description=Goddard Rover Arch GPS Time Sync Local Clock Server Service
+Requires=time-sync.target
+After=network.target time-sync.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/pi
+ExecStart=python3 /home/services/gps_server.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

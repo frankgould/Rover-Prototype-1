@@ -1,0 +1,13 @@
+[Unit]
+Description=Goddard Remote Control to Rover Battery Service
+Requires=time-sync.target
+After=time-sync.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/remote_logs
+ExecStart=/usr/bin/python3 /home/services/rover_battery_log.py &
+
+[Install] 
+WantedBy=multi-user.target

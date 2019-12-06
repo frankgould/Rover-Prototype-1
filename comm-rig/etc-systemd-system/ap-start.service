@@ -1,0 +1,15 @@
+[Unit]
+Description = Goddard Communications wlan_ap Startup create_ap Service
+After=wlan-start.service
+Wants=wlan-start.service
+Requires=wlan-start.service
+
+[Service]
+Type=simple
+WorkingDirectory=/home
+ExecStart = /usr/bin/create_ap -c 149 -g 10.10.10.1 wlan_ap wlan0 'Rover Wi-Fi Network' plants12
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
